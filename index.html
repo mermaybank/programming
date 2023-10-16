@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+</head>
+<body>
+
+<h1 id="questionSpace"></h1>
+<input id="userInput"> <br> <br>
+<div id="div" onclick="submit()">Submit</div>
+<h2 id="message"></h2>
+  
+     <script>
+     //Variables to store specific elements from the HTML 
+     var questionSpace = document.getElementById("questionSpace");
+     var userInput = document.getElementById("userInput");
+     var message = document.getElementById("message");
+     var quizQuestions = [
+
+      {  
+        question: "Please remember captial letters for each begining word. For the last question all words begin with a captial letter. Click Sumbit to start",
+      },
+      {
+         question: "1. True or False. Mudslides can carry rocks, trees, vehicles and buildings. ",
+         answer: "True",
+      },
+      {
+         question: "2. What is the coldest temperature to be recorded?",
+         answer: "-89.2",
+     },
+     {
+         question: "3. True or False. The most recent cyclone in New Zealand was called Cyclone Gabriella",
+         answer: "False",
+     },
+     {
+         question: "4. What country has the coldest temperature recorded?",
+         answer: "Antarctica",
+     },
+     {
+         question: "5. What is a Crirrus cloud made of?",
+         answer: "Ice crystals",
+     },
+     {
+         question: "6. What is the force of lightning called?",
+         answer: "Static electricity",
+     },
+     {
+         question: "7. What is it called when snow falls thick and fast?",
+         answer: "Blizzard",
+     },
+     {
+         question: "8. What is the name of the scientists who study weather?",
+         answer: "Meteorology", 
+     },
+     {
+         question: "9. What is the name of the center of a cyclone/hurricane?",
+         answer: "Eye", 
+     },
+     {
+         question: "10. What are the four seasons in order of NZ?",
+         answer: "Summer, Autumn, Winter, Spring",
+     }
+     ];
+
+     var questionState =0;
+     var score =0;
+
+     questionSpace.innerHTML = quizQuestions[questionState]["question"];
+     function update() {
+        if(questionState == 10) {
+                 message.innerHTML = "Your score is " +  score  
+             }
+          questionState++
+          questionSpace.innerHTML = quizQuestions[questionState]["question"];  
+          userInput.value= "";  
+     }
+
+     function submit() {
+         if (userInput.value == quizQuestions[questionState]['answer']) {
+             score++   
+             update()  
+         } else  {
+            update()   
+         }
+     }
+  </script>
+
+<style>
+#div {
+    height: 40px;
+    width: 100px;
+    background-color: #DDD8C4; 
+    text-align: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: xx-large;
+}
+
+    body {
+    background-color:#69A297; 
+    color:black;
+    text-align: center;
+    }
+   </style>
+</body>
+</html>
